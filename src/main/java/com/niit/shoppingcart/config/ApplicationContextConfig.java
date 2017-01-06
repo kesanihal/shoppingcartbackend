@@ -25,7 +25,7 @@ import com.niit.shoppingcart.model.User;
 
 
 @Configuration
-@ComponentScan("com.niit.shoppingcart")
+@ComponentScan("com.niit")
 @EnableTransactionManagement
 public class ApplicationContextConfig {
 
@@ -72,10 +72,10 @@ public class ApplicationContextConfig {
 			System.out.println("Transaction");
 			return transactionManager;
 		}
-		@Autowired
+		/*@Autowired
 		@Bean(name = "userDAO")
 		public UserDAO getUserDao(SessionFactory sessionFactory){
 					return  new UserDAOImpl(sessionFactory);
-		}
+		}*/
 			
 }

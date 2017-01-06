@@ -32,7 +32,7 @@ public class UserDAOTestCase {
 	public static void init()
 	{
 		context=new AnnotationConfigApplicationContext();
-		context.scan("com.niit.shoppingcart");
+		context.scan("com.niit.shoppingcartbackend");
 		context.refresh();
 		
 		user =(User) context.getBean("user");
@@ -65,33 +65,32 @@ public class UserDAOTestCase {
 	}
 	
 	@Test
-	public void getAllUsersTestCase(){
+	public void getAllUsersTestCase() {
 		int size=userDAO.list().size();
 		Assert.assertEquals("length check",8,size);
 	}
-	
 	@Test
 	public void saveTestCase(){
 		
-		user.setId("nihal");
-		user.setName("");
-		user.setContact("");
-		user.setMail("");
-		user.setPassword("");
-		user.setRole("");
+		user.setId("10");
+		user.setName("nihal");
+		user.setContact("8886366665");
+		user.setMail("nihal.kesa@gmail.com");
+		user.setPassword("nihal");
+		user.setRole("admin");
 		
 		Assert.assertEquals("saveTestCase",true,userDAO.save(user));
 	}
 	
-	@Test
-	public void updateTestCase(){
-		user=new User();
-		user.setId("");
-		user.setRole("");
-		Assert.assertEquals("updateTestCase",true,userDAO.update(user));
-		
-		
-	}
+	/*	@Test
+		public void updateTestCase(){
+			user=new User();
+			user.setId("");
+			user.setRole("");
+			Assert.assertEquals("updateTestCase",true,userDAO.update(user));
+			
+			
+		} */
 	
 
 }
