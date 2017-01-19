@@ -1,5 +1,6 @@
 package com.niit.shoppingcart;
 
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class CategoryDAOTestCase {
 	@BeforeClass
 	public static void init() {
 		context = new AnnotationConfigApplicationContext();
-		context.scan("com.niit.scartbackend");
+		context.scan("com.niit.shoppingcartbackend");
 		context.refresh();
 
 		category = (Category) context.getBean("category");
