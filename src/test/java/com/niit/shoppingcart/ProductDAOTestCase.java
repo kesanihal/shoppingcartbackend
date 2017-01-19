@@ -26,7 +26,7 @@ public class ProductDAOTestCase {
 	public static void init()
 	{
 		context=new AnnotationConfigApplicationContext();
-		context.scan("com.niit.scartbackend");
+		context.scan("com.niit.shoppingcartbackend");
 		context.refresh();
 		
 		product=(Product)context.getBean("product");

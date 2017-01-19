@@ -27,7 +27,7 @@ import com.niit.shoppingcart.model.User;
 
 
 @Configuration
-@ComponentScan("com.niit.scartbackend")
+@ComponentScan("com.niit.shoppingcartbackend")
 @EnableTransactionManagement
 public class ApplicationContextConfig {
 	

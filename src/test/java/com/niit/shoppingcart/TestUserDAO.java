@@ -19,7 +19,7 @@ public class TestUserDAO {
 	   {
 		   
 		   context=new AnnotationConfigApplicationContext();
-		   context.scan("com.niit.scartbackend");
+		   context.scan("com.niit.shoppingcartbackend");
 		   
 		   context.refresh();
 		   
@@ -45,7 +45,7 @@ public class TestUserDAO {
 	   public static void main(String args[])
 	   {
 		   TestUserDAO t=new TestUserDAO();
-		   t.validate("mukesh","mukesh");
+		   t.validate("nihal","nihal");
 	   }
 	
 	

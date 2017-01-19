@@ -24,7 +24,7 @@ public class SupplierTestCase {
 	public static void init()
 	{
 		context=new AnnotationConfigApplicationContext();
-		context.scan("com.niit.scartbackend");
+		context.scan("com.niit.shoppingcartbackend");
 		context.refresh();
 		
 		supplier=(Supplier)context.getBean("supplier");
@@ -36,7 +36,7 @@ public class SupplierTestCase {
 @Test
 	public void saveTestCase()
 	{
-		supplier.setName("Mukesh");
+		supplier.setName("nihal");
 		supplier.setAddress("hyd");
 		
 	Assert.assertEquals("save Test Case",true,supplierDAO.saveOrUpdate(supplier));
