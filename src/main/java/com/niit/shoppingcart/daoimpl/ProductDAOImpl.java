@@ -3,60 +3,106 @@ package com.niit.shoppingcart.daoimpl;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.shoppingcart.dao.ProductDAO;
 import com.niit.shoppingcart.dao.UserDAO;
 import com.niit.shoppingcart.model.Product;
 
+@SuppressWarnings("deprecation")
+@Repository
 public class ProductDAOImpl implements ProductDAO {
-	
+	private static final Logger log = LoggerFactory.getLogger(ProductDAOImpl.class);
+
 	@Autowired
 	private SessionFactory sessionFactory;
-	
-	public ProductDAOImpl(SessionFactory sessionFactor){
-		
-		this.sessionFactory=sessionFactory;
-	}
 
-	public List<Product> list() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Product get(String id) {
-		return (Product) sessionFactory.getCurrentSession().get(Product.class,id);
-		
-	}
-
-	public Product validate(String id, String password) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public boolean save(Product product) {
-		
-		try{
-		sessionFactory.getCurrentSession().save(product);
-		}catch(Exception e){
-			e.printStackTrace();
-		return false;
-		}
-		return true;
-	}
-
-	public boolean update(Product product) {
-		
+	@Transactional
+	public boolean saveOrUpdate(Product product) {
 		try {
-			sessionFactory.getCurrentSession().update(product);
+			log.debug("Save method Is Starting...........S......! ");
+			sessionFactory.getCurrentSession().saveOrUpdate(product);
+			log.debug("Save Method is Ending.........S.......!");
+			return true;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			log.info("Exception Occureing save Method....S......!" + e.getMessage());
 			e.printStackTrace();
 			return false;
 		}
-		
-		return true;
 	}
-	
-	
+
+	@Transactional
+	public boolean update(Product product) {
+
+		try {
+			log.debug("Update method Is Starting..........U.......! ");
+			sessionFactory.getCurrentSession().save(product);
+			log.debug("update Method is Ending.........U.......!");
+			return true;
+
+		} catch (Exception e) {
+			log.info("Exception Occureing Update Method......U.....!" + e.getMessage());
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	@Transactional
+	public boolean delete(Product product) {
+		try {
+			log.debug("Delete method Is Starting..........D.......! ");
+			sessionFactory.getCurrentSession().save(product);
+			log.debug("Delete Method is Ending.........D.......!");
+			return true;
+		} catch (Exception e) {
+			log.info("Exception Occureing Delete Method......D.....!" + e.getMessage());
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	@Transactional
+	public List<Product> list() {
+		String hql = "from Product";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		return query.list();
+	}
+
+	@Transactional
+	public Product get(int id) {
+		log.debug("starting of the method get");
+		log.info("trying to get product based on id:" + id);
+		String hql = "from Product where id= " + "'" + id + "'";
+		log.info("the hsql query is :" + hql);
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		List<Product> list = query.list();
+
+		if (list == null || list.isEmpty()) {
+			return null;
+		} else {
+			return list.get(0);
+		}
+	}
+
+	public List<Product> getproduct(int id) {
+		String hql = "from Product where id= " + id;
+		@SuppressWarnings("rawtypes")
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		List<Product> listProduct = (List<Product>) query.list();
+		return listProduct;
+	}
+
+	@Transactional
+	public List<Product> navproduct(int id) {
+		String hql = "from Product where categoryid= " + id;
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		List<Product> catproduct = (List<Product>) query.list();
+		return catproduct;
+	}
+
 }
