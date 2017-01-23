@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.niit.shoppingcart.dao.UserDAO;
 import com.niit.shoppingcart.model.User;
 
-@Repository
+@Repository(value="UserDAO")
 public class UserDAOImpl implements UserDAO {
 	Logger log = LoggerFactory.getLogger(UserDAOImpl.class);
 	@Autowired

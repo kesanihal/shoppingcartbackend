@@ -36,8 +36,8 @@ public class ApplicationContextConfig {
 	public DataSource getDataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("org.h2.Driver");
-		dataSource.setUrl("jdbc:h2:tcp://localhost/~/niitdb");
-		dataSource.setUsername("mukesh");
+		dataSource.setUrl("jdbc:h2:tcp://localhost/~/test");
+		dataSource.setUsername("nihal");
 	    dataSource.setPassword("pass");
 		System.out.println("Database is connected.....!");
 		return dataSource;
