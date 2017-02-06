@@ -1,19 +1,20 @@
-package com.niit.shoppingcart.daoimpl;
+package com.niit.shoppingcartbackend.daoimpl;
 
 import java.util.List;
 
 import org.hibernate.Criteria;
-import org.hibernate.Query;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.query.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.niit.shoppingcart.dao.UserDAO;
-import com.niit.shoppingcart.model.User;
+import com.niit.shoppingcartbackend.dao.UserDAO;
+import com.niit.shoppingcartbackend.model.User;
 
 @Repository(value="UserDAO")
 public class UserDAOImpl implements UserDAO {

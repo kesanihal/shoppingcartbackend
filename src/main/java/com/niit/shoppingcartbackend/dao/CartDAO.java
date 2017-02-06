@@ -1,8 +1,8 @@
-package com.niit.shoppingcart.dao;
+package com.niit.shoppingcartbackend.dao;
 
 import java.util.List;
 
-import com.niit.shoppingcart.model.Cart;
+import com.niit.shoppingcartbackend.model.Cart;
 
 public interface CartDAO {
 	public List<Cart> list();

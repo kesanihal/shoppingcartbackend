@@ -1,4 +1,4 @@
-package com.niit.shoppingcart.model;
+package com.niit.shoppingcartbackend.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,7 +8,7 @@ import javax.persistence.Table;
 import org.springframework.stereotype.Component;
 
 
-@Table(name = "USER")
+@Table(name = "userdetails")
 @Entity
 @Component
 

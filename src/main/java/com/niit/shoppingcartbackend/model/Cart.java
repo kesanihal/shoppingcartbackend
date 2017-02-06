@@ -1,4 +1,4 @@
-package com.niit.shoppingcart.model;
+package com.niit.shoppingcartbackend.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -81,5 +81,11 @@ public class Cart {
 
 	public void setStatus(String string) {
 	
-	}
+	
+
+	
+		
+}
+
+	
 }

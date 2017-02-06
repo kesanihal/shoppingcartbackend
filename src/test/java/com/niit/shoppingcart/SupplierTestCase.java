@@ -6,8 +6,8 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.niit.shoppingcart.dao.SupplierDAO;
-import com.niit.shoppingcart.model.Supplier;
+import com.niit.shoppingcartbackend.dao.SupplierDAO;
+import com.niit.shoppingcartbackend.model.Supplier;
 
 
 

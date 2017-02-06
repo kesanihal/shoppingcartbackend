@@ -1,10 +1,10 @@
-package com.niit.shoppingcart.dao;
+package com.niit.shoppingcartbackend.dao;
 
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.niit.shoppingcart.model.User;
+import com.niit.shoppingcartbackend.model.User;
 
 @Repository
 public interface UserDAO {
@@ -16,9 +16,6 @@ public interface UserDAO {
 
 	public User get(int id);
 
-	//public boolean save(User user);
-
-	//public boolean update(User user);
 
 	public User validate(String username, String password);
 

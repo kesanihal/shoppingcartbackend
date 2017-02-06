@@ -1,8 +1,8 @@
-package com.niit.shoppingcart.dao;
+package com.niit.shoppingcartbackend.dao;
 
 import java.util.List;
 
-import com.niit.shoppingcart.model.Category;
+import com.niit.shoppingcartbackend.model.Category;
 
 public interface CategoryDAO {
 
@@ -14,7 +14,7 @@ public interface CategoryDAO {
 	
 	public boolean saveorupdate(Category category);
 	
-	public boolean update(Category category);
+	/*public boolean update(Category category);*/
 	
 	public boolean delete(Category category);
 	

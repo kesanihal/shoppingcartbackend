@@ -1,4 +1,4 @@
-package com.niit.shoppingcart.config;
+package com.niit.shoppingcartbackend.config;
 
 
 
@@ -16,11 +16,24 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-
-import com.niit.shoppingcart.model.Category;
-import com.niit.shoppingcart.model.Product;
-import com.niit.shoppingcart.model.Supplier;
-import com.niit.shoppingcart.model.User;
+import com.niit.shoppingcartbackend.dao.CartDAO;
+import com.niit.shoppingcartbackend.dao.CategoryDAO;
+import com.niit.shoppingcartbackend.dao.CheckoutDAO;
+import com.niit.shoppingcartbackend.dao.ProductDAO;
+import com.niit.shoppingcartbackend.dao.SupplierDAO;
+import com.niit.shoppingcartbackend.dao.UserDAO;
+import com.niit.shoppingcartbackend.daoimpl.CartDAOImpl;
+import com.niit.shoppingcartbackend.daoimpl.CategoryDAOImpl;
+import com.niit.shoppingcartbackend.daoimpl.CheckoutDAOImpl;
+import com.niit.shoppingcartbackend.daoimpl.ProductDAOImpl;
+import com.niit.shoppingcartbackend.daoimpl.SupplierDAOImpl;
+import com.niit.shoppingcartbackend.daoimpl.UserDAOImpl;
+import com.niit.shoppingcartbackend.model.Cart;
+import com.niit.shoppingcartbackend.model.Category;
+import com.niit.shoppingcartbackend.model.Checkout;
+import com.niit.shoppingcartbackend.model.Product;
+import com.niit.shoppingcartbackend.model.Supplier;
+import com.niit.shoppingcartbackend.model.User;
 
 
 
@@ -36,7 +49,7 @@ public class ApplicationContextConfig {
 	public DataSource getDataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("org.h2.Driver");
-		dataSource.setUrl("jdbc:h2:tcp://localhost/~/test");
+		dataSource.setUrl("jdbc:h2:tcp://localhost/~/niitdb");
 		dataSource.setUsername("nihal");
 	    dataSource.setPassword("pass");
 		System.out.println("Database is connected.....!");
@@ -61,6 +74,8 @@ public class ApplicationContextConfig {
 	    sessionBuilder.addAnnotatedClasses(Supplier.class);
 	    sessionBuilder.addAnnotatedClasses(Product.class);
 	    sessionBuilder.addAnnotatedClasses(Category.class);
+	    sessionBuilder.addAnnotatedClasses(Cart.class);
+	    sessionBuilder.addAnnotatedClasses(Checkout.class);
 		System.out.println("Session is crated......!");
 		return sessionBuilder.buildSessionFactory();
 		
@@ -72,10 +87,39 @@ public class ApplicationContextConfig {
 		System.out.println("Transaction");
 		return transactionManager;
 	}
-	/*@Autowired
-	@Bean(name = "userDAO")
-	public UserDAO getUserDao(SessionFactory sessionFactory){
-				return  new UserDAOImpl(sessionFactory);
-	}*/
 	
-}
+	
+	/*@Autowired
+	@Bean(name = "SupplierDAO")
+	public SupplierDAO getSupplierDao(SessionFactory sessionFactory) {
+			return new SupplierDAOImpl(sessionFactory);
+	}
+
+	@Autowired
+	@Bean(name = "CategoryDAO")
+	public CategoryDAO getCategoryDao(SessionFactory sessionFactory){
+		return  new CategoryDAOImpl(sessionFactory);
+	}
+	
+	@Autowired
+	@Bean(name = "ProductDAO")
+	public ProductDAO getProductDao(SessionFactory sessionFactory) {
+			return new ProductDAOImpl(sessionFactory);
+			
+	}
+	@Autowired
+	@Bean(name = "UserDAO")
+	public UserDAO getUserDao(SessionFactory sessionFactory){
+		return  new UserDAOImpl(sessionFactory);
+	}
+	@Autowired
+	@Bean(name = "CartDAO")
+	public CartDAO getCartDao(SessionFactory sessionFactory){
+		return  new CartDAOImpl(sessionFactory);
+	}
+	@Autowired
+	@Bean(name = "CheckoutDAO")
+	public CheckoutDAO getCheckoutDao(SessionFactory sessionFactory){
+		return  new CheckoutDAOImpl(sessionFactory);
+	}*/
+			}

@@ -1,13 +1,15 @@
 package com.niit.shoppingcart;
 
-import org.junit.Assert;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.niit.shoppingcart.dao.ProductDAO;
-import com.niit.shoppingcart.model.Product;
+import com.niit.shoppingcartbackend.dao.ProductDAO;
+import com.niit.shoppingcartbackend.model.Product;
+
+import junit.framework.Assert;
 
 
 

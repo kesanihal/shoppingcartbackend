@@ -1,21 +1,29 @@
-package com.niit.shoppingcart.model;
+package com.niit.shoppingcartbackend.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
+
 import org.springframework.stereotype.Component;
 
-@Table(name="supplier")
 @Entity
+@Table
 @Component
-public class Supplier {
+public class Category {
+
 	@Id
-  @GeneratedValue
-	int id;
-	String name;
-	String address;
+	@GeneratedValue
+	
+	private int id;
+
+	private String name;
+
+	private String description;
+
+	
 	
 	public int getId() {
 		return id;
@@ -29,11 +37,12 @@ public class Supplier {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getAddress() {
-		return address;
+	public String getDescription() {
+		return description;
 	}
-	public void setAddress(String address) {
-		this.address = address;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
-} 
+
+}

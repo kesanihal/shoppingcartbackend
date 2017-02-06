@@ -3,8 +3,8 @@ package com.niit.shoppingcart;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.niit.shoppingcart.dao.UserDAO;
-import com.niit.shoppingcart.model.User;
+import com.niit.shoppingcartbackend.dao.UserDAO;
+import com.niit.shoppingcartbackend.model.User;
 
 public class TestUserDAO {
 	@Autowired

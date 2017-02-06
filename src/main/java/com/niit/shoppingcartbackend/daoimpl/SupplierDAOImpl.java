@@ -1,4 +1,4 @@
-package com.niit.shoppingcart.daoimpl;
+package com.niit.shoppingcartbackend.daoimpl;
 
 import java.util.List;
 
@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.niit.shoppingcart.dao.SupplierDAO;
-import com.niit.shoppingcart.dao.UserDAO;
-import com.niit.shoppingcart.model.Supplier;
+import com.niit.shoppingcartbackend.dao.SupplierDAO;
+import com.niit.shoppingcartbackend.dao.UserDAO;
+import com.niit.shoppingcartbackend.model.Supplier;
 
 @Repository
 public class SupplierDAOImpl implements SupplierDAO {

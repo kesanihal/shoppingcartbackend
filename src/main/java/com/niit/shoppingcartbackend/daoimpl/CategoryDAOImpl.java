@@ -1,6 +1,9 @@
-package com.niit.shoppingcart.daoimpl;
+package com.niit.shoppingcartbackend.daoimpl;
+
+
 
 import java.util.List;
+
 
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -10,23 +13,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.niit.shoppingcart.dao.ProductDAO;
-import com.niit.shoppingcart.dao.UserDAO;
-import com.niit.shoppingcart.model.Product;
+import com.niit.shoppingcartbackend.dao.CategoryDAO;
+import com.niit.shoppingcartbackend.model.Category;
 
-@SuppressWarnings("deprecation")
 @Repository
-public class ProductDAOImpl implements ProductDAO {
+public class CategoryDAOImpl implements CategoryDAO {
+
 	private static final Logger log = LoggerFactory.getLogger(ProductDAOImpl.class);
 
 	@Autowired
 	private SessionFactory sessionFactory;
 
+	public CategoryDAOImpl(SessionFactory sessionFactory) {
+	     this.sessionFactory = sessionFactory;
+	}
+
 	@Transactional
-	public boolean saveOrUpdate(Product product) {
+	public boolean saveorupdate(Category category) {
 		try {
 			log.debug("Save method Is Starting...........S......! ");
-			sessionFactory.getCurrentSession().saveOrUpdate(product);
+			sessionFactory.getCurrentSession().saveOrUpdate(category);
 			log.debug("Save Method is Ending.........S.......!");
 			return true;
 		} catch (Exception e) {
@@ -36,27 +42,25 @@ public class ProductDAOImpl implements ProductDAO {
 		}
 	}
 
-	@Transactional
-	public boolean update(Product product) {
-
+	/*@Transactional
+	public boolean update(Category category) {
 		try {
 			log.debug("Update method Is Starting..........U.......! ");
-			sessionFactory.getCurrentSession().save(product);
+			sessionFactory.getCurrentSession().save(category);
 			log.debug("update Method is Ending.........U.......!");
 			return true;
-
 		} catch (Exception e) {
 			log.info("Exception Occureing Update Method......U.....!" + e.getMessage());
 			e.printStackTrace();
 			return false;
 		}
-	}
+	}*/
 
 	@Transactional
-	public boolean delete(Product product) {
+	public boolean delete(Category category) {
 		try {
 			log.debug("Delete method Is Starting..........D.......! ");
-			sessionFactory.getCurrentSession().save(product);
+			sessionFactory.getCurrentSession().delete(category);
 			log.debug("Delete Method is Ending.........D.......!");
 			return true;
 		} catch (Exception e) {
@@ -66,43 +70,55 @@ public class ProductDAOImpl implements ProductDAO {
 		}
 	}
 
-	@Transactional
-	public List<Product> list() {
-		String hql = "from Product";
+/*	@Transactional
+	public List<Category> list() {
+		String hql ="from Category";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		return query.list();
 	}
-
 	@Transactional
-	public Product get(int id) {
-		log.debug("starting of the method get");
-		log.info("trying to get product based on id:" + id);
-		String hql = "from Product where id= " + "'" + id + "'";
-		log.info("the hsql query is :" + hql);
-		Query query = sessionFactory.getCurrentSession().createQuery(hql);
-		List<Product> list = query.list();
-
-		if (list == null || list.isEmpty()) {
+	public Category get(int id) {
+		String hql = "from Category where id= "+ "'"+ id+"'" ;
+		Query query=sessionFactory.getCurrentSession().createQuery(hql);
+		List<Category>list= query.list();
+		
+		if(list==null)
+		{
 			return null;
-		} else {
+		}
+		else
+		{
+			return list.get(0);
+		}
+	}*/
+	@Transactional
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public  Category get(int id){
+		
+		String hql = "from Category where id= "+ "'"+ id+"'" ;
+		Query query=sessionFactory.getCurrentSession().createQuery(hql);
+		List<Category>list= query.list();
+		
+		if(list==null)
+		{
+			return null;
+		}
+		else
+		{
 			return list.get(0);
 		}
 	}
-
-	public List<Product> getproduct(int id) {
-		String hql = "from Product where id= " + id;
-		@SuppressWarnings("rawtypes")
-		Query query = sessionFactory.getCurrentSession().createQuery(hql);
-		List<Product> listProduct = (List<Product>) query.list();
-		return listProduct;
-	}
-
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Transactional
-	public List<Product> navproduct(int id) {
-		String hql = "from Product where categoryid= " + id;
-		Query query = sessionFactory.getCurrentSession().createQuery(hql);
-		List<Product> catproduct = (List<Product>) query.list();
-		return catproduct;
+	public  List<Category> list(){
+		
+		String hql ="from Category";
+	Query query = sessionFactory.getCurrentSession().createQuery(hql);
+	return query.list();
 	}
+
+	
+
+	
 
 }

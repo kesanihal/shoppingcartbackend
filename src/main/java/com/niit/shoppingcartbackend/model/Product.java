@@ -1,6 +1,7 @@
-package com.niit.shoppingcart.model;
+package com.niit.shoppingcartbackend.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -14,9 +15,11 @@ import org.springframework.web.multipart.MultipartFile;
 public class Product {
 
 	@Id
+	@GeneratedValue
 	private int id;
 	private String name;
 	private String description;
+
 	private int price;
 	private int category_id;
 	private int supplier_id;

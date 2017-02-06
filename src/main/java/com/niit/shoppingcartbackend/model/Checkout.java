@@ -1,4 +1,4 @@
-package com.niit.shoppingcart.model;
+package com.niit.shoppingcartbackend.model;
 
 import java.io.Serializable;
 

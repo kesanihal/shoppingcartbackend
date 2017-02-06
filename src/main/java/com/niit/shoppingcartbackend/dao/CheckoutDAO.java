@@ -1,8 +1,8 @@
-package com.niit.shoppingcart.dao;
+package com.niit.shoppingcartbackend.dao;
 
 import java.util.List;
 
-import com.niit.shoppingcart.model.Checkout;
+import com.niit.shoppingcartbackend.model.Checkout;
 
 public interface CheckoutDAO {
 	public boolean saveOrUpdate(Checkout checkout);

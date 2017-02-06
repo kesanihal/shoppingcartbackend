@@ -1,4 +1,4 @@
-package com.niit.shoppingcart.daoimpl;
+package com.niit.shoppingcartbackend.daoimpl;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.niit.shoppingcart.dao.CheckoutDAO;
-import com.niit.shoppingcart.model.Checkout;
+import com.niit.shoppingcartbackend.dao.CheckoutDAO;
+import com.niit.shoppingcartbackend.model.Checkout;
 
 public class CheckoutDAOImpl implements CheckoutDAO {
 	@Autowired

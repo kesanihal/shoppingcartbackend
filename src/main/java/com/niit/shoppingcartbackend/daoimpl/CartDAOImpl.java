@@ -1,4 +1,4 @@
-package com.niit.shoppingcart.daoimpl;
+package com.niit.shoppingcartbackend.daoimpl;
 
 import java.util.List;
 
@@ -13,8 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.niit.shoppingcart.dao.CartDAO;
-import com.niit.shoppingcart.model.Cart;
+import com.niit.shoppingcartbackend.dao.CartDAO;
+import com.niit.shoppingcartbackend.model.Cart;
 
 @Repository(value="cartDAO")
 public class CartDAOImpl implements CartDAO {

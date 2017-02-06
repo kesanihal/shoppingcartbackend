@@ -8,8 +8,8 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.niit.shoppingcart.dao.UserDAO;
-import com.niit.shoppingcart.model.User;
+import com.niit.shoppingcartbackend.dao.UserDAO;
+import com.niit.shoppingcartbackend.model.User;
 
 
 
@@ -85,13 +85,13 @@ public class UserDAOTestCase {
 @Test
 public void validateCredentials()
 {
-	user=userDAO.validate("nihal","nihal");
+	user=userDAO.validate("","nihal");
 	Assert.assertNotNull("ValidateCredentials",user);
 	}
 @Test
 public void invalidateCredentials()
 {
-	user=userDAO.validate("nihal","niit@123");
+	user=userDAO.validate("","niit@123");
 	Assert.assertNull("INValidateCredentials",user);
 	}
 
